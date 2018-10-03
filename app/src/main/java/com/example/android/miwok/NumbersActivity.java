@@ -29,12 +29,10 @@ public class NumbersActivity extends AppCompatActivity {
 
         LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
 
-        int index = 0;
-        while(index < 10){
+        for(int i = 0; i < words.size(); i++){
             TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
+            wordView.setText(words.get(i));
             rootView.addView(wordView);
-            index++;
         }
 
     }
