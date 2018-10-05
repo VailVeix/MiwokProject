@@ -56,8 +56,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
             iconView.setVisibility(View.GONE);
         }
 
-        View textContainer = listItemView.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(getContext(), mColorResourceID);
+
+        View playButton= listItemView.findViewById(R.id.playButton);
+        playButton.setBackgroundColor(color);
+
+        View textContainer = listItemView.findViewById(R.id.text_container);
         textContainer.setBackgroundColor(color);
         return listItemView;
     }

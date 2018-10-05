@@ -16,11 +16,13 @@
         android:background="@color/tan_background" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:id="@+id/text_container">
+        android:id="@+id/text_container"
+        android:background="@color/category_colors">
 
         <TextView
             android:gravity="bottom"
@@ -45,5 +47,14 @@
             tools:text="one"/>
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/arrow"
+        android:gravity="center_horizontal"
+        android:paddingRight="16dp"
+        android:id="@+id/playButton"
+        android:background="@color/category_colors"/>
 
 </LinearLayout>
