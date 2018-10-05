@@ -6,7 +6,9 @@ public class Word {
 
     private String mMiwokTranslatoin;
 
-    private int mImageResource;
+    private int mImageResource = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     public Word(String mDefaultTranslation, String mMiwokTranslatoin){
         this.mDefaultTranslation = mDefaultTranslation;
@@ -29,5 +31,14 @@ public class Word {
 
     public int getImageResourceId(){
         return mImageResource;
+    }
+
+    public boolean hasImage(){
+        if(mImageResource == NO_IMAGE_PROVIDED){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
