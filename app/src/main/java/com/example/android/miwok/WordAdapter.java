@@ -1,6 +1,6 @@
 package com.example.android.miwok;
 
-import android.app.Activity;
+import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
     private int mColorResourceID;
 
-    public WordAdapter(Activity context, ArrayList<Word> words, int color){
+    public WordAdapter(Context context, ArrayList<Word> words, int color){
         super(context, 0, words);
         this.mColorResourceID = color;
     }
@@ -57,11 +57,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         View textContainer = listItemView.findViewById(R.id.text_container);
-        // Find the color that the resource ID maps to
         int color = ContextCompat.getColor(getContext(), mColorResourceID);
-
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
-        // so that it can be shown in the ListView
+        textContainer.setBackgroundColor(color);
         return listItemView;
     }
 }
