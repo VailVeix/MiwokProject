@@ -20,6 +20,12 @@ public class ColorsActivity extends AppCompatActivity {
     };
 
     @Override
+    protected void onStop(){
+        super.onStop();
+        releastMediaPlayer();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_colors);
