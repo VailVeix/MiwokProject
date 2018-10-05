@@ -11,7 +11,13 @@ import java.util.ArrayList;
 
 public class ColorsActivity extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releastMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +44,19 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 Word word = words.get(position);
+                mediaPlayer.stop();
+                releastMediaPlayer();
                 mediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getmSoundID());
+                mediaPlayer.setOnCompletionListener(mCompletionListener);
                 mediaPlayer.start();
             }
         });
+    }
+
+    public void releastMediaPlayer(){
+        if(mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
